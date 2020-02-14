@@ -12,21 +12,42 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
-        return null;
+        if (checkDiagonals('X') || checkRows('X') || checkColumns('X') ) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-
     public Boolean isInFavorOfO() {
-        return null;
+        if (checkDiagonals('O') || checkRows('O') || checkColumns('O') ) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public Boolean isTie() {
-
-        return null;
+        if( !isInFavorOfX() && !isInFavorOfO() ) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public String getWinner() {
-        return null;
+        if ( isInFavorOfX()) {
+            return "X";
+        }
+        else if( isInFavorOfO() ) {
+            return "O";
+        }
+        else {
+            return "";
+        }
     }
 
     // Check Rows
@@ -39,8 +60,8 @@ public class Board {
         return false;
     }
 
-    // Check Cols
-    public boolean checkVertical(Character player){
+    // Check Columns
+    public boolean checkColumns(Character player){
         for(int i = 0; i <= 2; i++){
             if ((board[0][i] == player) && (board[1][i] == player) && (board[2][i] == player)){
                 return true;
@@ -51,8 +72,8 @@ public class Board {
 
     // Check Both Diagonals
     public boolean checkDiagonals(Character player){
-        if ((board[0][0] == player && board[1][1] == player  && board[2][2] == player) ||
-                (board[2][0] == player && board [1][1] == player && board[0][2] == player)){
+        if((board[0][0] == player && board[1][1] == player  && board[2][2] == player) ||
+                (board[2][0] == player && board [1][1] == player && board[0][2] == player)) {
             return true;
         }
         return false;
