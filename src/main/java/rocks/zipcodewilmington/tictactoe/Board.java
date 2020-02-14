@@ -30,9 +30,9 @@ public class Board {
     }
 
     // Check Rows
-    public boolean checkRows(Character xOrO){
+    public boolean checkRows(Character player){
         for(int i = 0; i <= 2; i++){
-            if ((board[i][0] == xOrO) && (board[i][1] == xOrO) && (board[i][2] == xOrO)){
+            if ((board[i][0] == player) && (board[i][1] == player) && (board[i][2] == player)){
                 return true;
             }
         }
@@ -40,9 +40,9 @@ public class Board {
     }
 
     // Check Cols
-    public boolean checkVertical(Character xOrO){
+    public boolean checkVertical(Character player){
         for(int i = 0; i <= 2; i++){
-            if ((board[0][i] == xOrO) && (board[1][i] == xOrO) && (board[2][i] == xOrO)){
+            if ((board[0][i] == player) && (board[1][i] == player) && (board[2][i] == player)){
                 return true;
             }
         }
@@ -50,30 +50,13 @@ public class Board {
     }
 
     // Check Both Diagonals
-    public boolean checkDiagonals(Character xOrO){
-        if ((board[0][0] == xOrO && board[1][1] == xOrO  && board[2][2] == xOrO) ||
-                (board[2][0] == xOrO && board [1][1] == xOrO && board[0][2] == xOrO)){
+    public boolean checkDiagonals(Character player){
+        if ((board[0][0] == player && board[1][1] == player  && board[2][2] == player) ||
+                (board[2][0] == player && board [1][1] == player && board[0][2] == player)){
             return true;
         }
         return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
